@@ -2,6 +2,7 @@
 
 **users table**
 * デバイスを使用して作成
+
 | Column | type   | Option |
 |:--|:--|:---|
 | name   | string | index: true, null: false, unique: true |
@@ -13,6 +14,7 @@
 ***
 
 **groups table**
+
 | Column | type | Option |
 |:--|:--|:--|
 | name | string | index: true, null: false, unipue: true |
@@ -23,6 +25,7 @@
 ***
 
 **message table**
+
 | Column   | type    | Option |
 |:--|:--|:--|
 | body     | text    | null: false |
@@ -35,6 +38,7 @@
 ***
 
 **group_users table**
+
 | Column    | type    | Option |
 |:--|:--|:--|
 | group_id  | integer | index: true, foreign_key: true, null: false |
