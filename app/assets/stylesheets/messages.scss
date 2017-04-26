@@ -8,6 +8,7 @@
   height: 100vh;
   color: #FFFFFF;
   float: left;
+  position: relative;
 }
 
 .user-name {
@@ -15,6 +16,24 @@
   padding: 35px 20px;
   font-weight: bold;
   font-size: 16px;
+}
+
+.fa {
+  position: absolute;
+
+  &-edit{
+    left: 250px;
+    top: 40px;
+  }
+  &-cog {
+    left: 270px;
+    top: 40px;
+  }
+  &-file-image-o {
+    line-height: 50px;
+    right: 10px;
+  }
+
 }
 
 .groups {
@@ -65,11 +84,6 @@
     right: 40px;
     top: 28px;
   }
-  &:after {
-    content: "";
-    clear: both;
-    display: block;
-  }
 }
 
 .chat {
@@ -107,13 +121,16 @@
 .submit {
   background-color: white;
   position: relative;
+  width: calc(100vw - 500px);
   &__content {
+    display: inline-block;
     line-height: 50px;
     padding-left: 10px;
     font-size: 16px;
     color: #999999;
   }
-  &__btn {
+}
+.bottom-btn {
     position: absolute;
     display: inline-block;
     padding: 0 20px;
@@ -121,7 +138,6 @@
     color: white;
     text-align: center;
     line-height: 50px;
-    right: 0px;
-    bottom: 0px;
-  }
+    right: 40px;
+    bottom: 25px;
 }
