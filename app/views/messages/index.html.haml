@@ -1,5 +1,5 @@
-%div
-
+%div{class: "wrapper"}
+  / 左側
   %div{class: "content-left"}
     %div{class: "user-name"}
       %p ログインユーザー名
@@ -9,13 +9,13 @@
         %p{class: "groups__name"} グループ一覧
         %p{class: "groups__message"} 最新チャット内容
 
+
+  / 右側
   %div{class: "content-right"}
     %div{class: "group"}
-      %h2{class: "group__name"} グループ名
+      %p{class: "group__name"} グループ名
       %p{class: "group__member"} MEMBER: メンバー名
-
-    %div{class: "btn__edit"}
-      %p edit
+      %p{class: "group__btn"} Edit
 
     - for i in 1..3 do
       %div{class: "chat"}
@@ -23,9 +23,10 @@
         %p{class: "chat__date"} 各チャット送信日時
         %p{class: "chat__content"} 各チャット内容
 
-    %div{class: "submit"}
-      %p{class: "submit__content"} 送信内容
-      %p{class: "submit__button"} Send
+    %div{class: "bottom-content"}
+      %div{class: "submit"}
+        %p{class: "submit__content"} type a message
+        %p{class: "submit__btn"} Send
 
 
 
