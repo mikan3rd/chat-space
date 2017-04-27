@@ -5,7 +5,8 @@
     .user-name
       %p ログインユーザー名
       %i.fa.fa-edit
-      %i.fa.fa-cog
+      = link_to edit_user_registration_path do
+        %i.fa.fa-cog
 
     = render 'groups'
 
