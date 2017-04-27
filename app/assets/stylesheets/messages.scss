@@ -76,15 +76,15 @@
   }
   &__member {
     font-size: 12px;
-    color: #999999;
+    color: $light-gray;
 
   }
   &__btn {
     display: inline-block;
     padding: 0 20px;
     border: solid;
-    border-color: #38AEF0;
-    color: #38AEF0;
+    border-color: $blue;
+    color: $blue;
     text-align: center;
     line-height: 40px;
     position: absolute;
@@ -98,7 +98,7 @@
   &__user {
     font-weight: bold;
     font-size: 16px;
-    color: #434A54;
+    color: $deep-blue;
     float: left;
     padding-right: 10px;
     line-height: 16px;
@@ -114,6 +114,7 @@
     clear: both;
     padding-top: 10px;
     font-size: 14px;
+    color: $deep-blue;
   }
 }
 
@@ -134,14 +135,14 @@
     line-height: 50px;
     padding-left: 10px;
     font-size: 16px;
-    color: #999999;
+    color: $light-gray;
   }
 }
 .bottom-btn {
     position: absolute;
     display: inline-block;
     padding: 0 20px;
-    background-color: #38AEF0;
+    background-color: $blue;
     color: white;
     text-align: center;
     line-height: 50px;
