@@ -1,24 +1,24 @@
-%div{class: 'wrapper'}
-  %p{class: 'pop-up'} チャットグループが作成されました!
+.wrapper
+  %p.pop-up チャットグループが作成されました!
 
-  %div{class: 'content-left'}
-    %div{class: 'user-name'}
+  .content-left
+    .user-name
       %p ログインユーザー名
-      %i{class: 'fa fa-edit'}
-      %i{class: 'fa fa-cog'}
+      %i.fa.fa-edit
+      %i.fa.fa-cog
 
     = render 'groups'
 
-  %div{class: 'content-right'}
-    %div{class: 'group'}
-      %p{class: 'group__name'} グループ名
-      %p{class: 'group__member'} MEMBER: メンバー名
-      %p{class: 'group__btn'} Edit
+  .content-right
+    .group
+      %p.group__name グループ名
+      %p.group__member MEMBER: メンバー名
+      %p.group__btn Edit
 
     = render 'chat'
 
-    %div{class: 'bottom-content'}
-      %div{class: 'submit'}
-        %p{class: 'submit__content'} type a message
-        %i{class: 'fa fa-file-image-o'}
-      %p{class: 'submit__btn'} Send
+    .bottom-content
+      .submit
+        %p.submit__content type a message
+        %i.fa.fa-file-image-o
+      %p.submit__btn Send
