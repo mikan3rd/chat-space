@@ -7,4 +7,10 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = yield
+  .flash
+    .flash__log-in
+      - if notice
+        %p.flash__log-in--true ログイン成功！
+      - elsif alert
+        %p.flash__log-in--false ログイン失敗！
+  = yield

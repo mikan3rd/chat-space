@@ -1,26 +1,23 @@
-.wrapper
-  %p.pop-up チャットグループが作成されました!
+.content-left
+  .user-name
+    %p
+      = current_user.name
+    %i.fa.fa-edit
+    = link_to edit_user_registration_path do
+      %i.fa.fa-cog
 
-  .content-left
-    .user-name
-      %p
-        = current_user.name
-      %i.fa.fa-edit
-      = link_to edit_user_registration_path do
-        %i.fa.fa-cog
+  = render 'groups'
 
-    = render 'groups'
+.content-right
+  .group
+    %p.group__name グループ名
+    %p.group__member MEMBER: メンバー名
+    %p.group__btn Edit
 
-  .content-right
-    .group
-      %p.group__name グループ名
-      %p.group__member MEMBER: メンバー名
-      %p.group__btn Edit
+  = render 'chat'
 
-    = render 'chat'
-
-    .bottom-content
-      .submit
-        %p.submit__content type a message
-        %i.fa.fa-file-image-o
-      %p.submit__btn Send
+  .bottom-content
+    .submit
+      %p.submit__content type a message
+      %i.fa.fa-file-image-o
+    %p.submit__btn Send

@@ -1,0 +1,12 @@
+.flash{
+  text-align: center;
+  color: white;
+  &__log-in{
+    &--true{
+      background-color: $blue;
+    }
+    &--false {
+      background-color: red;
+    }
+  }
+}
