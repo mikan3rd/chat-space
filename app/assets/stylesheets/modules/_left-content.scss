@@ -16,19 +16,21 @@
 
 .fa {
   position: absolute;
-  color: $white;
 
   &-edit{
     left: 250px;
     top: 40px;
+    color: $white;
   }
   &-cog {
     left: 270px;
     top: 40px;
+    color: $white;
   }
   &-file-image-o {
     line-height: 50px;
     right: 10px;
+    color: gray;
   }
 }
 
