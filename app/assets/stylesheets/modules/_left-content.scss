@@ -1,0 +1,44 @@
+.content-left {
+  background-color: #2f3e51;
+  width: 300px;
+  height: 100vh;
+  color: #FFFFFF;
+  float: left;
+  position: relative;
+}
+
+.user-name {
+  background-color: black;
+  padding: 35px 20px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.fa {
+  position: absolute;
+
+  &-edit{
+    left: 250px;
+    top: 40px;
+  }
+  &-cog {
+    left: 270px;
+    top: 40px;
+  }
+  &-file-image-o {
+    line-height: 50px;
+    right: 10px;
+  }
+
+}
+
+.groups {
+  padding: 20px 20px 40px 20px;
+  &__name {
+    font-size: 15px;
+    padding-bottom: 5px;
+  }
+  &__message {
+    font-size: 11px;
+  }
+}
