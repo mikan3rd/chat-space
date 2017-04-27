@@ -1,5 +1,5 @@
 %div{class: "wrapper"}
-  %p{class: "pop-up"} チャットグループが作成されました
+  %p{class: "pop-up"} チャットグループが作成されました!
 
   / 左側
   %div{class: "content-left"}
@@ -8,11 +8,7 @@
       %i{class: "fa fa-edit"}
       %i{class: "fa fa-cog"}
 
-    - for i in 1..3 do
-      %div{class: "groups"}
-        %p{class: "groups__name"} グループ一覧
-        %p{class: "groups__message"} 最新チャット内容
-
+    = render 'groups'
 
   / 右側
   %div{class: "content-right"}
@@ -21,11 +17,7 @@
       %p{class: "group__member"} MEMBER: メンバー名
       %p{class: "group__btn"} Edit
 
-    - for i in 1..3 do
-      %div{class: "chat"}
-        %p{class: "chat__user"} 各ユーザー名
-        %p{class: "chat__date"} 各チャット送信日時
-        %p{class: "chat__content"} 各チャット内容
+    = render 'chat'
 
     %div{class: "bottom-content"}
       %div{class: "submit"}
