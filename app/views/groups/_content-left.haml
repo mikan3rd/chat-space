@@ -2,7 +2,8 @@
   .user-name
     %p
       = current_user.name
-    %i.fa.fa-edit
+    = link_to new_group_path do
+      %i.fa.fa-edit
     = link_to edit_user_registration_path do
       %i.fa.fa-cog
 
