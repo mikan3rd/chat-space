@@ -1,12 +1,23 @@
-.flash{
-  text-align: center;
-  color: white;
-  &__log-in{
-    &--true{
-      background-color: $blue;
-    }
-    &--false {
-      background-color: red;
-    }
-  }
-}
+.alert-error {
+    background-color: red;
+    color: $white;
+    text-align: center;
+ }
+
+.alert-alert {
+    background-color: red;
+    color: $white;
+    text-align: center;
+ }
+
+.alert-success {
+    background-color: $blue;
+    color: $white;
+    text-align: center;
+ }
+
+.alert-notice {
+    background-color: $blue;
+    color: $white;
+    text-align: center;
+ }

@@ -7,12 +7,5 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-  .flash
-    .flash__log-in
-      - if notice
-        %p.flash__log-in--true
-          = flash[:notice]
-      - if alert
-        %p.flash__log-in--false
-          = flash[:alert]
+  = render 'layouts/message'
   = yield
