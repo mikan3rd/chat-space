@@ -1,0 +1,16 @@
+.flash {
+  color: $white;
+  text-align: center;
+  &__error {
+    background-color: red;
+  }
+  &__alert{
+    background-color: red;
+  }
+  &__success {
+    background-color: $blue;
+  }
+  &__notice {
+    background-color: $blue;
+  }
+}
