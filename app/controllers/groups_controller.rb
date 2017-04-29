@@ -11,9 +11,13 @@ class GroupsController < ApplicationController
   end
 
   def create
-    Group.create(group_params)
-    redirect_to root_path
-
+    group = Group.create(group_params)
+    if group.name == ""
+      flash[:alert] = "グループ名を入力してください"
+      redirect_to "/groups/new"
+    else
+      redirect_to root_path
+    end
   end
 
   def edit
