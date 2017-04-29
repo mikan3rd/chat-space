@@ -19,6 +19,7 @@
               = user.collection_check_boxes :ids, User.all, :id, :name
           #user-search-result
 
+    / 後で実装する部分なのでコメントアウト
     / .chat-group-form__field.clearfix
     /   .chat-group-form__field--left
     /     %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
@@ -32,4 +33,4 @@
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
-        %input.chat-group-form__action-btn{"data-disable-with" => "Save", :name => "commit", :type => "submit", :value => "Save"}/
+        = f.submit :commit, class: "chat-group-form__action-btn", type: "submit", value: "Save"
