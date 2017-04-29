@@ -7,11 +7,11 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @users = User.all
   end
 
   def create
     group = Group.create(group_params)
+
     if group.name == ""
       flash[:alert] = "グループ名を入力してください"
       redirect_to "/groups/new"
@@ -28,7 +28,7 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, user_ids: [])
   end
 
 end
