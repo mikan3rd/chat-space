@@ -9,7 +9,8 @@
       - @group.users.each do |user|
         = user.name + ","
 
-    %p.group__btn Edit
+    = link_to "/groups/#{@group.id}/edit" do
+      %p.group__btn Edit
 
   = render 'chat'
 
