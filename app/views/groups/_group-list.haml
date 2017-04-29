@@ -1,4 +1,5 @@
-.groups
-  %p.groups__name
-    = group.name
-  %p.groups__message 最新チャット内容
+= link_to "/groups/:id/edit" do
+  .groups
+    %p.groups__name
+      = group.name
+    %p.groups__message 最新チャット内容
