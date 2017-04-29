@@ -7,8 +7,4 @@
     = link_to edit_user_registration_path do
       %i.fa.fa-cog
 
-  - @groups.each do |group|
-    .groups
-      %p.groups__name
-        = group.name
-      %p.groups__message 最新チャット内容
+  = render 'group-list'

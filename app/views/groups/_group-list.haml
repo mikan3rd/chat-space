@@ -1,4 +1,5 @@
-- 3.times do
+- @groups.each do |group|
   .groups
-    %p.groups__name グループ名
+    %p.groups__name
+      = group.name
     %p.groups__message 最新チャット内容
