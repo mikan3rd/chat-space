@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @groups = Group.order(id: "DESC")
+    @groups = Group.order(id: :DESC)
   end
 
   def new
@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
 
   def create
     group = Group.new(group_params)
-    unless group.save
+    if group.save == false
       flash[:alert] = "グループ名を入力してください"
       @group = group
       render :new
