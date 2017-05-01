@@ -1,6 +1,5 @@
-- if group.users.ids.include?(current_user.id)
-  = link_to group_messages_path(group) do
-    .groups
-      %p.groups__name
-        = group.name
-      %p.groups__message 最新チャット内容
+= link_to group_messages_path(group) do
+  .groups
+    %p.groups__name
+      = group.name
+    %p.groups__message 最新チャット内容

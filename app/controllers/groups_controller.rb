@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
   before_action :find_group_params, only: [:edit, :update]
 
   def index
-    @groups = Group.order(id: :DESC)
+    @groups = current_user.groups.order(id: :DESC)
   end
 
   def new
