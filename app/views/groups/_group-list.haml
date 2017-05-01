@@ -1,4 +1,4 @@
-= link_to "/groups/#{group.id}/messages" do
+= link_to group_messages_path(group) do
   .groups
     %p.groups__name
       = group.name
