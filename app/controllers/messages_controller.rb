@@ -5,8 +5,13 @@ class MessagesController < ApplicationController
     @groups = Group.order(id: :DESC)
     @group = Group.find(params[:group_id])
     @users = @group.users
-    @messages = @group.messages.order(id: :DESC).includes(:user)
-    @message = Message.new
+
+    if @users.ids.include?(current_user.id)
+      @messages = @group.messages.order(id: :DESC).includes(:user)
+      @message = Message.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
