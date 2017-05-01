@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     @groups = Group.order(id: :DESC)
     @group = Group.find(params[:group_id])
     @users = @group.users
+    @messages = Message.order(id: :DESC)
     @message = Message.new
   end
 
