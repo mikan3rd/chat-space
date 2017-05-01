@@ -15,6 +15,8 @@
 
   .bottom-content
     .submit
-      %p.submit__content type a message
+      = form_for @message do |f|
+        %p.submit__content type a message
+        = f.text_field :name, class: 'chat-group-form__input', id: 'chat_group_name', placeholder: 'グループ名を入力してください'
       %i.fa.fa-file-image-o
-    %p.submit__btn Send
+      %p.submit__btn Send

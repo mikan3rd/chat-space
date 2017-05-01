@@ -5,4 +5,12 @@ class MessagesController < ApplicationController
     @group = Group.find(params[:group_id])
     @users = @group.users
   end
+
+  def new
+    @message = 
+  end
+
+  def create
+    
+  end
 end
