@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
   before_action :find_group_params, only: [:edit, :update]
 
   def index
-    @groups = Group.order(id: :DESC)
+    @groups = current_user.groups.order(id: :DESC)
   end
 
   def new
@@ -15,7 +15,7 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to root_path, notice: "グループを作成しました"
     else
-      flash[:alert] = "グループ名を入力してください"
+      flash.now[:alert] = "グループ名を入力してください"
       render :new
     end
   end
@@ -27,7 +27,7 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to group_messages_path(@group), notice: "グループを編集しました"
     else
-      flash[:alert] = "グループ名を入力してください"
+      flash.now[:alert] = "グループ名を入力してください"
       render :edit
     end
   end

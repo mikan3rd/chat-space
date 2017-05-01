@@ -73,6 +73,8 @@
     padding-left: 10px;
     font-size: 16px;
     color: $light-gray;
+    width: calc(100vw - 530px);
+    border: 0px;
   }
   &__btn {
     @include btn();
@@ -80,5 +82,7 @@
     color: white;
     line-height: 50px;
     bottom: 25px;
+    border: $blue;
+    cursor: pointer;
   }
 }
