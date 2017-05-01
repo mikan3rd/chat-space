@@ -2,9 +2,14 @@
 
 .content-right
   .group
-    %p.group__name グループ名
-    %p.group__member MEMBER: メンバー名
-    %p.group__btn Edit
+    %p.group__name
+      = @group.name
+    %p.group__member
+      MEMBER:
+      = @users.pluck(:name).join(",")
+
+    = link_to edit_group_path(@group) do
+      %p.group__btn Edit
 
   = render 'chat'
 

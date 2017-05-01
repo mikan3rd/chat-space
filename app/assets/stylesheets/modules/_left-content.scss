@@ -36,6 +36,11 @@
 
 .groups {
   padding: 20px 20px 40px 20px;
+  color: $white;
+  text-decoration: none;
+  &:hover {
+    opacity: 0.5;
+  }
   &__name {
     font-size: 15px;
     padding-bottom: 5px;
