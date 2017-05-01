@@ -15,9 +15,9 @@
 
   .bottom-content
     .submit
-    =form_for [@group, @message] do |f|
+    = form_for [@group, @message] do |f|
       %p
-        = f.text_field :body, class: "submit__content",placeholder: 'type a message'
+        = f.text_field :body, class: "submit__content", placeholder: 'type a message'
       %i.fa.fa-file-image-o
       %p
-        = f.submit type: "submit", class: "submit__btn", value: "Send"
+        = f.submit class: "submit__btn", value: "Send"
