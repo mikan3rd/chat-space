@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
       @messages = @group.messages.order(id: :DESC).includes(:user)
       @message = Message.new
     else
+      flash.now[:alert] = "このグループの参加者ではありません"
       redirect_to root_path
     end
   end
