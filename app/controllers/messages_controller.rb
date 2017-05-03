@@ -1,13 +1,9 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
+  before_action :index_variables, only: [:index, :create]
 
   def index
-    @groups = current_user.groups.order(id: :DESC)
-    @group = Group.find(params[:group_id])
-    @users = @group.users
-
     if @users.ids.include?(current_user.id)
-      @messages = @group.messages.order(id: :DESC).includes(:user)
       @message = Message.new
     else
       flash.now[:alert] = "このグループの参加者ではありません"
@@ -30,5 +26,12 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:body, :image).merge(group_id: params[:group_id])
+  end
+
+  def index_variables
+    @groups = current_user.groups.order(id: :DESC)
+    @group = Group.find(params[:group_id])
+    @users = @group.users
+    @messages = @group.messages.order(id: :DESC).includes(:user)
   end
 end
