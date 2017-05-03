@@ -29,9 +29,9 @@ class MessagesController < ApplicationController
   end
 
   def index_variables
-    @groups = current_user.groups.order(id: :DESC)
+    @groups = current_user.groups.order(created_at: :DESC)
     @group = Group.find(params[:group_id])
     @users = @group.users
-    @messages = @group.messages.order(id: :DESC).includes(:user)
+    @messages = @group.messages.order(created_at: :DESC).includes(:user)
   end
 end
