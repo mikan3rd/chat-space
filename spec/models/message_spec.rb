@@ -11,8 +11,8 @@ describe Message do
     end
 
     it "is valid with a body that has more than 1 characters" do
-    message = build(:message, body: "a")
-    expect(message).to be_valid
+      message = build(:message, body: "a")
+      expect(message).to be_valid
   end
 
   end
