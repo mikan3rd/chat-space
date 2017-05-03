@@ -5,37 +5,42 @@ describe MessagesController do
 
   describe 'GET #index' do
     before do
-      login_user user
-      # controller.stub(:index_variables).and_return(true)
-    end
-
-    it "@groupsの確認" do
+      @groups = user.groups.order(created_at: :DESC)
       @group = user.groups.first
       @users = @group.users
       @messages = @group.messages.order(created_at: :DESC).includes(:user)
+      # controller.stub(:index_variables).and_return(true)
+    end
+
+    it "ログインしていない場合のビュー" do
       get :index, group_id: @group.id
-      create_list(:group, 3)
-      groups = user.groups
-      expect(assigns(:groups)).to match(groups.sort{ |a, b| b.created_at <=> a.created_at })
+      expect(response).to redirect_to(new_user_session_path)
     end
 
-    it "@groupの確認" do
+    it "ログインしている場合のビュー" do
+      login_user user
+      get :index, group_id: @group.id
+      expect(response).to render_template :index
+    end
+  end
+
+  describe 'POST #create' do
+    before do
+      @groups = user.groups.order(created_at: :DESC)
+      @group = user.groups.first
+      @users = @group.users
+      @messages = @group.messages.order(created_at: :DESC).includes(:user)
     end
 
-    it "@usersの確認" do
+    it "ログインしていない場合のビュー" do
+      post :create, group_id: @group.id, message: attributes_for(:message)
+      expect(response).to redirect_to(new_user_session_path)
     end
 
-    it "@messagesの確認" do
-    end
-
-    it "@messageの確認" do
-    end
-
-    it "ビューに移動するかの確認" do
-    #   group = create(:group)
-    #   user = create_list(:user, 3)
-    #   get :index, group_id: group
-    #   expect(response).to render_template :index
+    it "ログインしている場合のビュー" do
+      login_user user
+      post :create, group_id: @group.id, message: attributes_for(:message)
+      expect(response).to redirect_to(group_messages_path)
     end
   end
 end
