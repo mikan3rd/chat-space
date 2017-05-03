@@ -3,6 +3,13 @@ class MessagesController < ApplicationController
   before_action :index_variables, only: [:index, :create]
 
   def index
+    if @users.ids.include?(current_user.id)
+      @messages = @group.messages.order(id: :DESC).includes(:user)
+      @message = Message.new
+    else
+      flash.now[:alert] = "このグループの参加者ではありません"
+      redirect_to root_path
+    end
   end
 
   def create
@@ -26,13 +33,6 @@ class MessagesController < ApplicationController
     @groups = current_user.groups.order(id: :DESC)
     @group = Group.find(params[:group_id])
     @users = @group.users
-
-    if @users.ids.include?(current_user.id)
-      @messages = @group.messages.order(id: :DESC).includes(:user)
-      @message = Message.new
-    else
-      flash.now[:alert] = "このグループの参加者ではありません"
-      redirect_to root_path
-    end
+    @messages = @group.messages.order(id: :DESC).includes(:user)
   end
 end
