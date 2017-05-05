@@ -8,4 +8,5 @@
     = link_to edit_user_registration_path do
       %i.fa.fa-cog
 
-  = render partial: 'groups/group-list', collection: @groups, as: :group
+  .group-wrapper
+    = render partial: 'groups/group-list', collection: @groups, as: :group
