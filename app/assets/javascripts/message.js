@@ -25,7 +25,7 @@ $(function() {
     .done(function(data) {
       console.log(data)
       var chat = buildHTML(data);
-      $('.chat-wrapper').append(chat);
+      $('.chat-wrapper').prepend(chat);
       textField.val('');
     })
     .fail(function() {
