@@ -3,5 +3,6 @@
     %p.groups__name
       = group.name
     %p.groups__message
-      = group.messages.last.body
+      - if group.messages.present?
+        = group.messages.last.body
 
