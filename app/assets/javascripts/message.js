@@ -1,4 +1,4 @@
-$(function() {
+jQuery(function() {
 
   function buildHTML(message) {
     var name = $('<p class="chat__user">').append(message.name);
