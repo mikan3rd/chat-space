@@ -34,7 +34,6 @@ $(function() {
       contentType: false
     })
     .done(function(data) {
-      console.log(data)
       var chat = buildHTML(data);
       $('.chat-wrapper').prepend(chat);
       textField.val('');
