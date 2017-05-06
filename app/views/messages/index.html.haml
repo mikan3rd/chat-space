@@ -21,4 +21,4 @@
         = f.text_field :body, class: "submit__content js-form__text-field", placeholder: 'type a message'
       %i.fa.fa-file-image-o
       %p
-        = f.submit class: "submit__btn", value: "Send"
+        = f.submit "Send", class: "submit__btn", name: "Commit"

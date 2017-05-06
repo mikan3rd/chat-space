@@ -1,11 +1,22 @@
-jQuery(function() {
+$(function() {
 
   function buildHTML(message) {
-    var name = $('<p class="chat__user">').append(message.name);
-    var date = $('<p class="chat__date">').append(message.date);
-    var body = $('<p class="chat__content">').append(message.body);
-    var image = $('<p class="chat__image">').append(message.image);
-    var html = $('<div class="chat">').append(name).append(date).append(body).append(image);
+    var content = `
+        <p class="chat__user">${message.name}</p>
+        <p class="chat__date">${message.date}</p>
+        <p class="chat__content">${message.body}</p>`;
+    if (message.image) {
+      html =`
+      <div class="chat">
+      ${content}
+      <p class="chat__image">${message.image}</p>
+      </div>`;
+    } else {
+      html = `
+      <div class="chat">
+      ${content}
+      </div>`;
+    }
     return html
   }
 
