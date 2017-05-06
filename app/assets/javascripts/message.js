@@ -41,5 +41,6 @@ $(document).on('turbolinks:load', function() {
     .fail(function() {
       alert('非同期通信に失敗しました');
     });
+  return false;
   });
 });
