@@ -11,13 +11,14 @@
     = link_to edit_group_path(@group) do
       %p.group__btn Edit
 
-  = render partial: 'chat', collection: @messages, as: :message
+  .chat-wrapper
+    = render partial: 'chat', collection: @messages, as: :message
 
   .bottom-content
     .submit
-    = form_for [@group, @message] do |f|
+    = form_for [@group, @message], html: { class: "form js-form" } do |f|
       %p
-        = f.text_field :body, class: "submit__content", placeholder: 'type a message'
+        = f.text_field :body, class: "submit__content js-form__text-field", placeholder: 'type a message'
       %i.fa.fa-file-image-o
       %p
-        = f.submit class: "submit__btn", value: "Send"
+        = f.submit "Send", class: "submit__btn", name: "Commit"
