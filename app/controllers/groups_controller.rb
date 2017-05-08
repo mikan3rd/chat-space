@@ -35,6 +35,11 @@ class GroupsController < ApplicationController
     end
   end
 
+  def search
+    @users = User.where('name LIKE(?)', "%#{params[:name]}%")
+    render json: @users
+  end
+
   private
 
   def group_params
