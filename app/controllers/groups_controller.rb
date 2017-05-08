@@ -36,7 +36,8 @@ class GroupsController < ApplicationController
   end
 
   def search
-    @users = User.where('name LIKE(?)', "%#{params[:name]}%")
+    @users_except_me = User.where.not(id: current_user.id)
+    @users = @users_except_me.where('name LIKE(?)', "%#{params[:name]}%")
     render json: @users
   end
 
