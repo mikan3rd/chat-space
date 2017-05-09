@@ -13,7 +13,10 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to root_path, notice: "グループを作成しました"
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: "グループを作成しました" }
+        format.json
+      end
     else
       flash.now[:alert] = "グループ名を入力してください"
       render :new
@@ -32,9 +35,17 @@ class GroupsController < ApplicationController
     end
   end
 
+  def search
+    @users_except_me = User.where.not(id: current_user.id)
+    @users = @users_except_me.where('name LIKE(?)', "%#{params[:name]}%")
+    render json: @users
+  end
+
   private
 
   def group_params
+    user_ids = params[:group]["user_ids"]
+    user_ids << current_user.id.to_s
     params.require(:group).permit(:name, user_ids: [])
   end
 

@@ -20,15 +20,15 @@ $(document).on('turbolinks:load', function() {
     return html
   }
 
-  $('.js-form').on('submit', function(e) {
+  $('.js-message').on('submit', function(e) {
     e.preventDefault();
     var textField = $('.js-form__text-field');
-    var fd = new FormData($(this)[0]);
+    var formdata = new FormData($(this)[0]);
 
     $.ajax({
       type: 'POST',
       url: document.location.href,
-      data: fd,
+      data: formdata,
       dataType: 'json',
       processData: false,
       contentType: false
