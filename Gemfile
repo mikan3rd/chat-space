@@ -43,6 +43,10 @@ group :development, :test do
   end
 end
 
+group :development, :production do
+  gem 'fog'
+end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -58,3 +62,5 @@ gem 'sass-globbing'
 gem 'devise'
 gem 'pry-rails'
 gem 'jquery-turbolinks'
+gem 'carrierwave'
+gem 'dotenv'
