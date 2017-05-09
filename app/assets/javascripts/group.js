@@ -2,8 +2,8 @@ $(document).on('turbolinks:load', function() {
 
 // ユーザー検索時に表示されるHTMLを生成
   function buildSearchHTML(user) {
-    var html =`
-      <div class="chat-group-user clearfix">
+    var html =
+      `<div class="chat-group-user clearfix">
         <p class="chat-group-user__name">
           ${user.name}</p>
         <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加
@@ -14,8 +14,8 @@ $(document).on('turbolinks:load', function() {
 
 // ユーザー追加ボタンクリック時に追加されるHTMLの生成
   function buildMemberHTML(id, name) {
-    var html = `
-    <div class="chat-group-user clearfix" id=chat-group-user-${id}>
+    var html =
+    `<div class="chat-group-user clearfix" id=chat-group-user-${id}>
       <input type="hidden" name="group[user_ids][]" value="${id}">
       <p class="chat-group-user__name">${name}</p>
       <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove" data-user-id="${id}">削除</a>
@@ -34,7 +34,6 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json'
     })
     .done(function(data) {
-      console.log(data);
       var insertHTML = "";
       data.forEach(function(user) {
         insertHTML += buildSearchHTML(user);
