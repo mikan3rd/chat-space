@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', function() {
   $('#user-search-field').on('keyup', function() {
     $.ajax({
       type: 'GET',
-      url: '/groups/search.json',
+      url: '/groups/search',
       data: {
         name: $(this).val()
       },
@@ -41,7 +41,7 @@ $(document).on('turbolinks:load', function() {
       $('#user-search-result').html(insertHTML);
     })
     .fail(function(data) {
-      console.log("検索に失敗しました");
+      alert("検索に失敗しました");
     });
   });
 
