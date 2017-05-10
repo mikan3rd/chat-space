@@ -29,14 +29,12 @@ $(document).on('turbolinks:load', function() {
       contentType: false
     })
     .done(function(data) {
-      console.log(data.image)
       var chat = buildHTML(data);
       $('.chat-wrapper').prepend(chat);
       textField.val('');
     })
     .fail(function(data) {
-      console.log(data);
-      alert('非同期通信に失敗しました');
+      alert('メッセージを入力してください');
     });
   return false;
   });
