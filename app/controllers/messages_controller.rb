@@ -13,7 +13,6 @@ class MessagesController < ApplicationController
 
   def create
     @message = current_user.messages.new(message_params)
-
     if @message.save
       respond_to do |format|
         format.json

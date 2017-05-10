@@ -7,4 +7,4 @@
     = message.body
   %p.chat__image
     - if message.image.present?
-      = message.image
+      = image_tag(message.image)
