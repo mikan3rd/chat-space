@@ -9,4 +9,6 @@ CarrierWave.configure do |config|
     region: ENV['AWS_REGION']
   }
   config.fog_directory = ENV['AWS_BUCKET_NAME']
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/mikan3rd-chat-space'
 end
+

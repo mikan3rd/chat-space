@@ -1,29 +1,24 @@
 $(document).on('turbolinks:load', function() {
 
   function buildHTML(message) {
-    var content = `
+    var insertImage = '';
+    if (message.image.url) {
+      insertImage = `<img src="${message.image.url}">`;
+    }
+    var html = `
+      <div class="chat">
         <p class="chat__user">${message.name}</p>
         <p class="chat__date">${message.date}</p>
-        <p class="chat__content">${message.body}</p>`;
-    if (message.image) {
-      html =`
-      <div class="chat">
-      ${content}
-      <p class="chat__image">${message.image}</p>
+        <p class="chat__content">${message.body}</p>
+        ${insertImage}
       </div>`;
-    } else {
-      html = `
-      <div class="chat">
-      ${content}
-      </div>`;
-    }
     return html
   }
 
-  $('.js-message').on('submit', function(e) {
+  $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var textField = $('.js-form__text-field');
-    var formdata = new FormData($(this)[0]);
+    var formdata = new FormData($(this).get(0));
 
     $.ajax({
       type: 'POST',
@@ -34,11 +29,13 @@ $(document).on('turbolinks:load', function() {
       contentType: false
     })
     .done(function(data) {
+      console.log(data.image)
       var chat = buildHTML(data);
       $('.chat-wrapper').prepend(chat);
       textField.val('');
     })
-    .fail(function() {
+    .fail(function(data) {
+      console.log(data);
       alert('非同期通信に失敗しました');
     });
   return false;

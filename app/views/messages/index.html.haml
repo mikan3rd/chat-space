@@ -18,6 +18,7 @@
     .submit
     = form_for [@group, @message], html: { class: "form js-message" } do |f|
       = f.text_field :body, class: "submit__content js-form__text-field", placeholder: 'type a message'
-      = f.file_field :image
-      %i.fa.fa-file-image-o
+      %label.chat-footer__file
+        = f.file_field :image
+        %i.fa.fa-file-image-o
       = f.submit "Send", class: "submit__btn", name: "Commit"
