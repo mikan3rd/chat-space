@@ -58,7 +58,7 @@ $(document).on('turbolinks:load', function() {
       console.log('自動更新に成功しました！');
     })
     .fail(function(data) {
-      console.log('自動更新に失敗しました');
+      alert('自動更新に失敗しました');
     });
   } else {
     clearInterval(id);
