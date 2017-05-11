@@ -1,3 +1,12 @@
+- if @group.errors.any?
+  .chat-group-form__errors
+    %ul
+      %h2
+        = "#{@group.errors.count}件のエラーがあります"
+      -@group.errors.full_messages.each do |message|
+        %li
+          = message
+
 = form_for @group, html: { class: "form js-group" }  do |f|
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
