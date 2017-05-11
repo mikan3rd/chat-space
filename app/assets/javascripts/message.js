@@ -41,25 +41,26 @@ $(document).on('turbolinks:load', function() {
   return false;
   });
 
-  // メッセージ自動更新機能
-  $('.chat-wrapper').ready(function() {
-    setInterval(function() {
-      $.ajax({
-        type: 'GET',
-        url: location.html,
-        dataType: 'json'
-      })
-      .done(function(data) {
-        console.log(data);
-        var insertHTML = '';
-        data.messages.forEach(function(message) {
-          insertHTML += buildHTML(message);
-        });
-        $(this).html(insertHTML);
-      })
-      .fail(function(data) {
-        console.log('自動更新に失敗しました');
+  // メッセージ自動更新
+    var id = setInterval(function() {
+      if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+    $.ajax({
+      type: 'GET',
+      url: location.href,
+      dataType: 'json'
+    })
+    .done(function(data) {
+      var insertHTML = '';
+      data.messages.forEach(function(message) {
+        insertHTML += buildHTML(message);
       });
-      }, 10 * 1000 );
-  });
+      $('.chat-wrapper').html(insertHTML);
+      console.log('自動更新に成功しました！');
+    })
+    .fail(function(data) {
+      console.log('自動更新に失敗しました');
+    });
+  } else {
+    clearInterval(id);
+   }} , 5 * 1000 );
 });
