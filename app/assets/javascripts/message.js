@@ -1,5 +1,6 @@
 $(document).on('turbolinks:load', function() {
 
+  // メッセージ表示のHTMLを生成
   function buildHTML(message) {
     var insertImage = '';
     if (message.image.url) {
@@ -15,6 +16,7 @@ $(document).on('turbolinks:load', function() {
     return html
   }
 
+  // メッセージ送信の非同期通信
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var textField = $('.js-form__text-field');
@@ -22,7 +24,7 @@ $(document).on('turbolinks:load', function() {
 
     $.ajax({
       type: 'POST',
-      url: document.location.href,
+      url: location.href,
       data: formdata,
       dataType: 'json',
       processData: false,
@@ -37,5 +39,27 @@ $(document).on('turbolinks:load', function() {
       alert('メッセージを入力してください');
     });
   return false;
+  });
+
+  // メッセージ自動更新機能
+  $('.chat-wrapper').ready(function() {
+    setInterval(function() {
+      $.ajax({
+        type: 'GET',
+        url: location.html,
+        dataType: 'json'
+      })
+      .done(function(data) {
+        console.log(data);
+        var insertHTML = '';
+        data.messages.forEach(function(message) {
+          insertHTML += buildHTML(message);
+        });
+        $(this).html(insertHTML);
+      })
+      .fail(function(data) {
+        console.log('自動更新に失敗しました');
+      });
+      }, 10 * 1000 );
   });
 });
