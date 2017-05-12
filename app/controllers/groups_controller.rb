@@ -18,7 +18,6 @@ class GroupsController < ApplicationController
         format.json
       end
     else
-      flash.now[:alert] = "グループ名を入力してください"
       render :new
     end
   end
@@ -30,7 +29,6 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to group_messages_path(@group), notice: "グループを編集しました"
     else
-      flash.now[:alert] = "グループ名を入力してください"
       render :edit
     end
   end

@@ -5,6 +5,10 @@ class MessagesController < ApplicationController
   def index
     if @users.ids.include?(current_user.id)
       @message = Message.new
+      respond_to do |format|
+        format.html
+        format.json
+      end
     else
       flash.now[:alert] = "このグループの参加者ではありません"
       redirect_to root_path
