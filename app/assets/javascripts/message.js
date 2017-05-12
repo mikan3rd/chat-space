@@ -19,7 +19,6 @@ $(document).on('turbolinks:load', function() {
   // メッセージ送信の非同期通信
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
-    var textField = $('.js-form__text-field');
     var formdata = new FormData($(this).get(0));
 
     $.ajax({
@@ -33,7 +32,7 @@ $(document).on('turbolinks:load', function() {
     .done(function(data) {
       var chat = buildHTML(data);
       $('.chat-wrapper').prepend(chat);
-      textField.val('');
+      $('.js-form__text-field').val('');
     })
     .fail(function(data) {
       alert('メッセージを入力してください');
@@ -51,7 +50,6 @@ $(document).on('turbolinks:load', function() {
     })
     .done(function(data) {
       var id = $('.chat').data('messageId');
-      console.log( "最新のメッセージのid：" + id);
       var insertHTML = '';
       data.messages.forEach(function(message) {
         if (message.id > id ) {
@@ -59,10 +57,9 @@ $(document).on('turbolinks:load', function() {
         }
       });
       $('.chat-wrapper').prepend(insertHTML);
-      console.log('自動更新に成功しました！');
     })
     .fail(function(data) {
-      console.log('自動更新に失敗しました');
+      alert('自動更新に失敗しました');
     });
   } else {
     clearInterval(interval);
