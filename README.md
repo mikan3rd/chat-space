@@ -32,8 +32,8 @@
 |:--|:--|:--|
 | body     | text    | null: false |
 | image    | string  |  |
-| group_id | integer | foreign_key: true |
-| user_id  | integer | foreign_key: true |
+| group | references | foreign_key: true |
+| user  | references | foreign_key: true |
 
 **Association**
 * belongs_to :user
@@ -44,11 +44,11 @@
 
 | Column    | type    | Option |
 |:--|:--|:--|
-| group_id  | integer | index: true, foreign_key: true, null: false |
-| user_id   | integer | index: true, foreign_key: true, null: false |
+| group  | references | index: true, foreign_key: true, null: false |
+| user   | references | index: true, foreign_key: true, null: false |
 
 **Association**
 * belongs_to :group
-* velongs_to :user
+* belongs_to :user
 ***
 
